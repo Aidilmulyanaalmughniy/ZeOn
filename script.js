@@ -60,29 +60,6 @@ document.getElementById("guestForm").addEventListener("submit", function (e) {
     waktu: new Date().toLocaleString()
   };
 
-  let entries = JSON.parse(localStorage.getItem("bukuTamu")) || [];
-  entries.push(entry);
-  localStorage.setItem("bukuTamu", JSON.stringify(entries));
-
-  document.getElementById("status").textContent = "✅ Pesan berhasil disimpan!";
-  document.getElementById("guestForm").reset();
-  renderGuestbook();
-});
-
-function renderGuestbook() {
-  const entries = JSON.parse(localStorage.getItem("bukuTamu")) || [];
-  const container = document.getElementById("guestbook-entries");
-  container.innerHTML = "";
-  entries.reverse().forEach((e) => {
-    const div = document.createElement("div");
-    div.className = "entry";
-    div.innerHTML = `<strong>${e.nama}</strong> <br><small>${e.waktu}</small><p>${e.pesan}</p>`;
-    container.appendChild(div);
-  });
-}
-
-renderGuestbook();
-
 // Animasi kartu masuk
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".card.animate").forEach(card => {
