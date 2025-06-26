@@ -67,11 +67,12 @@
 
   <section class="guestbook">
     <h2>📝Buku Tamu</h2>
-    <form id="guestForm" action="https://script.google.com/macros/s/AKfycbxFgk9e9iwkzckdv9Uf4o0g1LE4X8yXmBJy1tut_mFgVRA7286ABBmLgh73dmmM5ETuGw/exec" method="POST">
-      <label for="nama">Nama:</label>
-      <input type="text" name="nama" required>
-  
+<form id="guestbook">
+  <input type="text" name="nama" placeholder="Nama" required><br>
+  <textarea name="pesan" placeholder="Ucapan kenangan" required></textarea><br>
   <button type="submit">Kirim</button>
+</form>
+<div id="status"></div>
       <div class="success-message" id="successMsg" style="display:none;">Terima kasih! Ucapan kamu sudah terkirim 💌</div>
     </form>
   </div>
