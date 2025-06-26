@@ -13,24 +13,37 @@ document.body.addEventListener('click', () => {
 }, { once: true });
 
 // ========== FORM BUKU TAMU ==========
-document.getElementById("guestbook").addEventListener("submit", function(e) {
+document.getElementById("guestForm").addEventListener("submit", function(e) {
   e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
+
+  const nama = document.getElementById("nama").value.trim();
+  const ucapan = document.getElementById("ucapan").value.trim();
+
+  if (!nama || !ucapan) {
+    document.getElementById("status").innerText = "Nama dan ucapan wajib diisi.";
+    return;
+  }
+
+  const data = new FormData();
+  data.append("nama", nama);
+  data.append("ucapan", ucapan);
 
   fetch("https://script.google.com/macros/s/AKfycbxy9V8WC4hQbmOLbKf9ZkAteojUnbKjRAp6cqsoVKZUA9wLgZJHR0hDCtU12earxv-Zng/exec", {
     method: "POST",
-    body: data,
+    body: data
   })
   .then(response => response.text())
   .then(responseText => {
     document.getElementById("successMsg").style.display = "block";
-    form.reset();
+    document.getElementById("status").innerText = "";
+    e.target.reset();
   })
   .catch(error => {
-    document.getElementById("status").innerText = "Gagal mengirim. Coba lagi.";
+    console.error("Gagal:", error);
+    document.getElementById("status").innerText = "Gagal mengirim. Coba lagi nanti.";
   });
 });
+
 
 // ========== ANIMASI SCROLL ==========
 window.addEventListener("scroll", () => {
