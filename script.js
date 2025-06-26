@@ -28,7 +28,7 @@ document.getElementById("guestForm").addEventListener("submit", function(e) {
   data.append("nama", nama);
   data.append("ucapan", ucapan);
 
-  fetch("https://script.google.com/macros/s/AKfycbxy9V8WC4hQbmOLbKf9ZkAteojUnbKjRAp6cqsoVKZUA9wLgZJHR0hDCtU12earxv-Zng/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxbO8eZJLMUahndQSg2ktTYMR3c3_XdxDJepDLK4SF8SoidjwBBf47M7cDOeHyXYavFng/exec", {
     method: "POST",
     body: data
   })
