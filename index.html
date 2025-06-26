@@ -23,16 +23,7 @@
     </div>
   </section>
 
-  <section class="buku-tamu">
-    <h2>📝 Buku Kenangan</h2>
-     <form action="https://formsubmit.co/alumnimts212@gmail.com" method="POST">
-      <input type="text" id="name" placeholder="Nama" required />
 
-      
-
-      <textarea id="message" placeholder="Tulis pesan untuk semua orang di al ihsan..." required></textarea>
-      <button type="submit">Kirim Pesan</button>
-    </form>
     <p id="status"></p>
     <div id="guestbook-entries"></div>
   </section>
@@ -81,8 +72,9 @@
 
   <section class="guestbook">
     <h2>📝Buku Tamu</h2>
-     <form action="https://formsubmit.co/alumnimts212@gmail.com" method="POST">
-  <input type="text" id="name" placeholder="Nama" required />
+    <form id="guestForm" action="https://script.google.com/macros/s/AKfycbxFgk9e9iwkzckdv9Uf4o0g1LE4X8yXmBJy1tut_mFgVRA7286ABBmLgh73dmmM5ETuGw/exec" method="POST">
+      <label for="nama">Nama:</label>
+      <input type="text" name="nama" required>
   
        <textarea id="message" placeholder="Ucapan kenangan" required></textarea>
   <button type="submit">Kirim</button>
