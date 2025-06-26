@@ -1,7 +1,7 @@
   const form = document.getElementById('guestForm');
     const successMsg = document.getElementById('successMsg');
 
-    form.addEventListener('submit', function(e) {
+   form.addEventListener('submit', function(e) {
       e.preventDefault();
 
       fetch(form.action, {
@@ -18,7 +18,6 @@
       })
       .catch(() => alert("Gagal mengirim. Cek koneksi atau coba lagi."));
     });
-  if (!name || !message) return;
 // Slideshow
 const slides = [
     "images/foto1.jpg",
@@ -33,69 +32,7 @@ setInterval(() => {
     index = (index + 1) % slides.length;
     slideImg.src = slides[index];
 }, 3000);
-  // Simpan ke localStorage (simpan sementara di browser)
-  const entry = {
-    nama: name,
-    pesan: message,
-    waktu: new Date().toLocaleString()
-  };
-
-  let entries = JSON.parse(localStorage.getItem("bukuTamu")) || [];
-  entries.push(entry);
-  localStorage.setItem("bukuTamu", JSON.stringify(entries));
-function renderGuestbook() {
-  const entries = JSON.parse(localStorage.getItem("bukuTamu")) || [];
-  const container = document.getElementById("guestbook-entries");
-  container.innerHTML = "<h3>Pesan yang sudah masuk:</h3>";
-
-  entries.reverse().forEach((e) => {
-    const inisial = e.nama.charAt(0).toUpperCase();
-    const waktu = new Date(e.waktu).toLocaleString("id-ID", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    });
-
-    const div = document.createElement("div");
-    div.className = "entry";
-    div.innerHTML = `
-      <div class="entry-avatar">${inisial}</div>
-      <div class="entry-content">
-        <h4>${e.nama}</h4>
-        <time>${waktu}</time>
-        <p>${e.pesan}</p>
-      </div>
-    `;
-    container.appendChild(div);
-  });
-}
-
-  // Update status & reset form
-  status.textContent = "✅ Ucapan berhasil disimpan!";
-  document.getElementById("guestForm").reset();
-
-  // Tampilkan lagi semua pesan
-  renderGuestbook();
-});
-
-function renderGuestbook() {
-  const entries = JSON.parse(localStorage.getItem("bukuTamu")) || [];
-  const container = document.getElementById("guestbook-entries");
-  container.innerHTML = "<h3>Pesan yang sudah masuk:</h3>";
-
-  entries.forEach((e) => {
-    const div = document.createElement("div");
-    div.className = "entry";
-    div.innerHTML = `<strong>${e.nama}</strong> <br><em>${e.waktu}</em><br>${e.pesan}<hr>`;
-    container.appendChild(div);
-  });
-}
-
-// Tampilkan saat halaman dibuka
-renderGuestbook();
+ 
 
   // Coba putar otomatis
   document.body.addEventListener('click', () => {
