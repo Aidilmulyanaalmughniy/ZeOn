@@ -4,7 +4,7 @@ document.getElementById("guestbook").addEventListener("submit", function(e) {
     const form = e.target;
     const data = new FormData(form);
 
-    fetch("https://script.google.com/macros/s/AKfycbxD6ACXXTA22BtSGb2Vp8jq5pa9EMN8nrae80eLoHgbE6yJOJCCi6FS2W62ceDSb6-sJQ/exec", { // ganti URL ini dengan URL Web App kamu
+    fetch("https://script.google.com/macros/s/AKfycbzfLJTqq3P_gt6CEuIYjnxmmIdT1VAxsHnGSV-dfslTC9V9TCbKAGeWwyEAGIDGOb2vOA/exec", { // ganti URL ini dengan URL Web App kamu
       method: "POST",
       body: data,
     })
