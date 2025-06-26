@@ -1,22 +1,22 @@
 document.getElementById("guestbook").addEventListener("submit", function(e) {
-  e.preventDefault(); // biar tidak reload
+    e.preventDefault();
 
-  var form = e.target;
-  var data = new FormData(form);
+    const form = e.target;
+    const data = new FormData(form);
 
-  fetch("https://script.google.com/macros/s/AKfycbxFgk9e9iwkzckdv9Uf4o0g1LE4X8yXmBJy1tut_mFgVRA7286ABBmLgh73dmmM5ETuGw/exec", {
-    method: "POST",
-    body: data
-  })
-  .then(response => response.text())
-  .then(result => {
-    document.getElementById("status").innerText = "Terima kasih sudah mengisi!";
-    form.reset();
-  })
-  .catch(error => {
-    document.getElementById("status").innerText = "Gagal mengirim!";
+    fetch("https://script.google.com/macros/s/AKfycbxD6ACXXTA22BtSGb2Vp8jq5pa9EMN8nrae80eLoHgbE6yJOJCCi6FS2W62ceDSb6-sJQ/exec", { // ganti URL ini dengan URL Web App kamu
+      method: "POST",
+      body: data,
+    })
+    .then(response => response.text())
+    .then(responseText => {
+      document.getElementById("successMsg").style.display = "block";
+      form.reset();
+    })
+    .catch(error => {
+      document.getElementById("status").innerText = "Gagal mengirim. Coba lagi.";
+    });
   });
-});
 // Slideshow
 const slides = [
     "images/foto1.jpg",
