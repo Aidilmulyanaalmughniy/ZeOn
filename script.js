@@ -1,10 +1,23 @@
-document.getElementById("guestForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  
-  const name = document.getElementById("name").value.trim();
-  const message = document.getElementById("message").value.trim();
-  const status = document.getElementById("status");
-  
+  const form = document.getElementById('guestForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => {
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+        } else {
+          alert("Terjadi kesalahan. Coba lagi nanti.");
+        }
+      })
+      .catch(() => alert("Gagal mengirim. Cek koneksi atau coba lagi."));
+    });
   if (!name || !message) return;
 // Slideshow
 const slides = [
