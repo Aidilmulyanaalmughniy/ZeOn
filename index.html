@@ -67,15 +67,21 @@
 
   <section class="guestbook">
     <h2>📝Buku Tamu</h2>
-<form id="guestbook">
-  <input type="text" name="nama" placeholder="Nama" required><br>
-  <textarea name="pesan" placeholder="Ucapan kenangan" required></textarea><br>
-  <button type="submit">Kirim</button>
-</form>
-<div id="status"></div>
-<div class="success-message" id="successMsg" style="display:none;">Terima kasih! Ucapan kamu sudah terkirim 💌</div>
+<div class="form-container">
+  <form id="guestForm">
+    <label for="nama">Nama:</label>
+    <input type="text" name="nama" id="nama" required>
 
+    <label for="ucapan">Ucapan:</label>
+    <textarea name="ucapan" id="ucapan" rows="4" required></textarea>
 
+    <button type="submit">Kirim</button>
+    <div class="success-message" id="successMsg" style="display:none; margin-top:10px;">
+      Terima kasih! Ucapan kamu sudah terkirim 💌
+    </div>
+    <div id="status" style="color:red;"></div>
+  </form>
+</div>
 
   </section>
 
