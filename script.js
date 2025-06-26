@@ -18,7 +18,7 @@ document.getElementById("guestbook").addEventListener("submit", function(e) {
   const form = e.target;
   const data = new FormData(form);
 
-  fetch("https://script.google.com/macros/s/AKfycbzcxZJEPDcAHvNKluOqvbZbFWSYqfcv8jdnYp4m5v2ts80i9uvJq5KBgOzkL2RvdM8kGA/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxy9V8WC4hQbmOLbKf9ZkAteojUnbKjRAp6cqsoVKZUA9wLgZJHR0hDCtU12earxv-Zng/exec", {
     method: "POST",
     body: data,
   })
