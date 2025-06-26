@@ -1,24 +1,22 @@
+document.getElementById("guestbook").addEventListener("submit", function(e) {
+  e.preventDefault(); // biar tidak reload
 
-    const form = document.getElementById('guestForm');
-    const successMsg = document.getElementById('successMsg');
+  var form = e.target;
+  var data = new FormData(form);
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(response => {
-        if (response.ok) {
-          successMsg.style.display = 'block';
-          form.reset();
-        } else {
-          alert("Terjadi kesalahan. Coba lagi nanti.");
-        }
-      })
-      .catch(() => alert("Gagal mengirim. Cek koneksi atau coba lagi."));
-    });
+  fetch("https://script.google.com/macros/s/AKfycbxFgk9e9iwkzckdv9Uf4o0g1LE4X8yXmBJy1tut_mFgVRA7286ABBmLgh73dmmM5ETuGw/exec", {
+    method: "POST",
+    body: data
+  })
+  .then(response => response.text())
+  .then(result => {
+    document.getElementById("status").innerText = "Terima kasih sudah mengisi!";
+    form.reset();
+  })
+  .catch(error => {
+    document.getElementById("status").innerText = "Gagal mengirim!";
+  });
+});
 // Slideshow
 const slides = [
     "images/foto1.jpg",
